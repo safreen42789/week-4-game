@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crystals Collector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="./Assets/Javascript/game.js"></script>
+    
+</head>
+<body>
+    <h1>Crystals Collector</h1>
+    <p>You will be given a random number at the start of the game.</p>
+    <p>There are four crystals below.  By clicking on a crystal you will add a specific amount of points to your total score.</p>
+    <p>You will win the game by matching your total score to random number, you lose the game if your total score goes above the randomn number</p>
+    <p>The value of each crystal is hidden from you until you click on it.</p>
+    <p>Each time when the game starts, the game will change the values of each crystal.</p>
+
+    <div>
+        <h2> Your Number Is: 
+            <span id="randomNumber">
+            </span>
+        </h2>
+    </div>
+
+    <div>
+        <h2> 
+            Your wins: <span id = "numWins"></span>
+        </br>
+            Your loses: <span id = "numLoses"></span>
+        </h2>
+    </div>
+
+    <div>
+        <img src="./Assets/Images/Blue Crystal.jpg" class= Crystals id = "A" alt = "Blue Crystal" height = "100px" width = "100px">
+        <img src="./Assets/Images/Lime Crystal.jpg" class= Crystals id = "B" alt = "Lime Crystal" height = "100px" width = "100px">
+        <img src="./Assets/Images/Pink Crystal.jpg" class= Crystals id = "C" alt = "Pink Crystal" height = "100px" width = "100px">
+        <img src="./Assets/Images/Purple Crystal.jpg" class= Crystals id = "D" alt = "Purple Crystal" height = "100px" width = "100px">
+    </div>
+
+    <div class = "userScore">
+        <h2> 
+            Total score: <span id = "totalScore"></span>
+        </h2>
+    </div>
+
+    <script = "text/javascript">
+
+    // 
+     $(document).ready(function() {
+
+        let pageLoad = Math.floor(Math.random()*25+10);
+            $('#randomNumber').text(pageLoad);
+        
+        let numWins = 0;
+        let numLoses = 0;
+        let userScore = 0;
+
+       
+            let aNum = Math.floor(Math.random()*10+1);
+            let bNum = Math.floor(Math.random()*10+1);
+            let cNum = Math.floor(Math.random()*10+1);
+            let dNum = Math.floor(Math.random()*10+1);
+        
+            $('#A').on('click', function(){
+            userScore = userScore + aNum;
+            $('#totalScore').text(userScore);
+                if (userScore == randomNumber) {
+                    numWins = numWins + 1;
+
+                }
+                else if (userScore > randomNumber){
+                    numLoses = numLoses + 1;
+                }
+        });
+
+     });
+         // display wins and loses
+
+        // display total score
+        
+        // dispaly crytals
+
+
+
+    </script>
+
+</body>
+</html>
